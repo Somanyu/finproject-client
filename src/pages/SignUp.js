@@ -26,10 +26,11 @@ const SignUp = () => {
                     body: JSON.stringify(formData)
                 })
                 const json = await res.json();
-                if (res.ok) {
+                if (res.status === 200) {
                     setData(json)
+                    window.location.href = '/signin'
                 } else {
-                    setError(json.errorMsg)
+                    setError(json.error)
                 }
             }
             fetchData()
@@ -37,6 +38,10 @@ const SignUp = () => {
             console.log(error);
         }
     }
+
+    // if (error) {
+    //     return <p>{error}</p>
+    // }
 
     return (
         <>
