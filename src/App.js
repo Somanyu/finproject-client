@@ -17,7 +17,7 @@ function App() {
       </BrowserRouter>
 
       <div data-dial-init class="fixed right-6 bottom-6 group">
-        <div id="speed-dial-menu-default" class="flex hidden flex-col items-center mb-4 space-y-2">
+        <div id="speed-dial-menu-default" class="flex flex-col items-center mb-4 space-y-2">
         </div>
         <ThemeIcon/>
       </div>

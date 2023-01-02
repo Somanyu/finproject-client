@@ -43,6 +43,7 @@ const Signin = () => {
                     </div>
                 </div>
             </section>
+            <Outlet/>
         </>
     )
 }
