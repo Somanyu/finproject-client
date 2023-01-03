@@ -27,6 +27,7 @@ const Signin = () => {
                 })
                 const json = await res.json();
                 if (res.status === 200) {
+                    document.cookie = `jwt=${json.jwt}`;
                     setData(json)
                     window.location.href = '/dashboard'
                 } else {
