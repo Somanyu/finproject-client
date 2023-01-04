@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 
-const Signin = () => {
+const Signin = ({ props }) => {
 
     const [formData, setFormData] = useState({});
     const [data, setData] = useState(null)
@@ -15,10 +15,10 @@ const Signin = () => {
     }
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         try {
-            event.preventDefault();
             async function fetchData() {
-                const res = await fetch("http://localhost:3001/auth/signin", {
+                const res = await fetch("/auth/signin", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -27,11 +27,12 @@ const Signin = () => {
                 })
                 const json = await res.json();
                 if (res.status === 200) {
-                    document.cookie = `jwt=${json.jwt}`;
+                    // document.cookie = `jwt=${json.jwt}`;
+                    localStorage.setItem("token", res.data)
                     setData(json)
                     window.location.href = '/dashboard'
                 } else {
-                    setError(json.error)
+                    setError(json.message)
                     // window.location.href = '/signup'
                 }
             }
@@ -51,7 +52,7 @@ const Signin = () => {
                         </div>
                     ) : error ? (
                         <div class="font-inter p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <span class="font-bold">{error}</span> Change a few things up and try submitting again.
+                            <span class="font-bold">{error}</span> Try submitting again.
                         </div>
                     ) : null}
                     <a href="/" class="font-karla flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

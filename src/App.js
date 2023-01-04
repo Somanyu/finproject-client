@@ -1,20 +1,22 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import SignUp from './pages/SignUp';
 import Signin from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import useDarkMode from '../src/hooks/darkMode';
 
 function App() {
+  const user = localStorage.getItem("token");
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<SignUp />} />
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          {user && <Route path="/dashboard" exact element={<Dashboard />} />}
+          <Route path='/' exact element={<SignUp />} />
+          <Route path='/signin' exact element={<Signin />} />
+          <Route path='/dashboard' element={<Navigate replace to="/signin" />} />
         </Routes>
       </BrowserRouter>
 
