@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 
     const [formData, setFormData] = useState({});
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+
+
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setFormData({
@@ -18,7 +21,7 @@ const SignUp = () => {
         try {
             event.preventDefault()
             async function fetchData() {
-                const res = await fetch("http://localhost:3001/auth/signup", {
+                const res = await fetch("/auth/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -26,11 +29,14 @@ const SignUp = () => {
                     body: JSON.stringify(formData)
                 })
                 const json = await res.json();
-                if (res.status === 200) {
+                if (res.status === 201) {
                     setData(json)
+                    // console.log(json.success);
+                    // navigate("/signin")
                     // window.location.href = '/signin'
+
                 } else {
-                    setError(json.error)
+                    setError(json.message)
                 }
             }
             fetchData()
@@ -38,10 +44,6 @@ const SignUp = () => {
             console.log(error);
         }
     }
-
-    // if (error) {
-    //     return <p>{error}</p>
-    // }
 
     return (
         <>
@@ -53,13 +55,13 @@ const SignUp = () => {
                         </div>
                     ) : error ? (
                         <div class="font-inter p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <span class="font-bold">{error}</span> Change a few things up and try submitting again.
+                            <span class="font-bold">{error}</span> Try submitting again.
                         </div>
                     ) : null}
-                    <a href="/" class="flex font-karla items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                        <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
-                        Flowbite
-                    </a>
+                    <Link href="/" class="flex font-karla items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                        {/* <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" /> */}
+                        💸 WP Finance
+                    </Link>
                     <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 class="font-karla text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
