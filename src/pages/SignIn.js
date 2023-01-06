@@ -28,8 +28,8 @@ const Signin = ({ props }) => {
                 const json = await res.json();
                 if (res.status === 200) {
                     // document.cookie = `jwt=${json.jwt}`;
-                    localStorage.setItem("token", res.data)
                     setData(json)
+                    localStorage.setItem("token", json.data)
                     window.location.href = '/dashboard'
                 } else {
                     setError(json.message)
