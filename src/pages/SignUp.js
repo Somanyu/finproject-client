@@ -56,7 +56,7 @@ const SignUp = () => {
                         </div>
                     ) : error ? (
                         <div class="font-inter p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                            <span class="font-bold">{error}</span> Try submitting again.
+                            <span class="font-bold">{error}!</span> Try submitting again.
                         </div>
                     ) : null}
                     <Link href="/" class="flex font-karla items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
