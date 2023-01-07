@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
+import Cookies from 'js-cookie';
 
 const Signin = ({ props }) => {
 
@@ -29,7 +30,10 @@ const Signin = ({ props }) => {
                 if (res.status === 200) {
                     // document.cookie = `jwt=${json.jwt}`;
                     setData(json)
-                    localStorage.setItem("token", json.data)
+                    
+                    // Set the JWT token in a cookie and localStorage on the client
+                    Cookies.set('jwt', json.token, {expires: 7, path: ''});
+                    localStorage.setItem("token", json.token)
                     window.location.href = '/dashboard'
                 } else {
                     setError(json.message)

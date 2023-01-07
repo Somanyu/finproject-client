@@ -1,12 +1,18 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Logout = () => {
     let navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        console.log("❗ Logged out.");
-        window.location.reload();
+        try {
+            Cookies.remove('jwt', { path: '' })
+            localStorage.removeItem("token");
+            console.log("❗ Logged out.");
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
