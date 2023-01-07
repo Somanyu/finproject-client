@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Logout from "../components/Logout";
 import { BsTelephone } from "react-icons/bs";
+const Cookies = require('js-cookie');
 
 const Dashboard = () => {
 
     const [formData, setFormData] = useState({});
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
+
+    const cookieValue = Cookies.get('jwt');
 
     const handleChange = (event) => {
         setFormData({
@@ -25,6 +28,7 @@ const Dashboard = () => {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${cookieValue}`,
                     },
                     body: JSON.stringify(formData)
                 })
