@@ -90,7 +90,7 @@ const Dashboard = () => {
                             </div>
                         ) : users ? (
                             <div class="flex flex-col items-center pb-10">
-                                <img class="w-24 h-24 mb-3 mt-10 rounded-full shadow-lg" src="https://avatars.dicebear.com/api/micah/somanyu.svg" alt="somanyu" />
+                                <img class="w-24 h-24 mb-3 mt-10 rounded-full shadow-lg" src={users.data.avatar} alt="somanyu" />
                                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{users.data.firstName} {users.data.lastName}</h5>
                                 <span class="text-sm text-gray-500 dark:text-gray-400">{users.data.email}</span>
                                 <div class="flex mt-4 space-x-3 md:mt-6">
