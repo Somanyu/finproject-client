@@ -94,6 +94,35 @@ const SignUp = () => {
                                             required=""
                                         />
                                     </div>
+                                    <div class="w-full">
+                                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                                        <input
+                                            onChange={handleChange}
+                                            type="tel"
+                                            name="phone"
+                                            id="phone"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="987456321"
+                                            required=""
+                                        />
+                                    </div>
+                                    <div class="w-full">
+                                        <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                                        <select id="gender" name="gender" onChange={handleChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option selected>Choose a gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        {/* <input
+                                            onChange={handleChange}
+                                            type="text"
+                                            name="gender"
+                                            id="gender"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Smith"
+                                            required=""
+                                        /> */}
+                                    </div>
                                     <div class="sm:col-span-2">
                                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                         <input
