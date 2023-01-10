@@ -61,29 +61,46 @@ const Dashboard = () => {
     }
     return (
         <>
+            <div class="font-inter w-1/2 m-auto mt-4">
+                <div id="alert-border-1" class="flex p-4 mb-4 text-blue-700 bg-blue-100 border-t-4 border-blue-500 dark:text-blue-400 dark:bg-gray-800" role="alert">
+                    <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                    <div class="ml-3 text-sm font-medium">
+                        You need to <a href="https://wa.me/+14155238886?text=join%20discover-series" class="font-semibold underline hover:text-blue-800">connect</a> to our Twilio Sandbox for starting with our app. Get started now!
+                    </div>
+                </div>
+            </div>
             <div class="flex justify-around mt-10 font-inter">
                 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <a href="/">
+                    <div href="/">
                         <h5 class="font-karla mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">You are successfully signed in.</h5>
-                    </a>
+                    </div>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                     <div class="flex justify-between">
                         <Logout />
                         <button type="submit" data-modal-target="small-modal" data-modal-toggle="small-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             See Profile
                         </button>
-                        <button onClick={handleSubmit} type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send text</button>
                     </div>
-                    {data ? (
-                        <div class="font-inter p-2 mt-3 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-gray-800 dark:text-green-400" role="alert">
-                            <span class="font-bold">{data.success}!</span> Your number has been saved.
+                </div>
+            </div>
+
+            <div class="font-inter my-5">
+                {data ? (
+
+                    <div id="alert-border-3" class="w-1/2 m-auto flex p-4 mb-4 text-green-700 bg-green-100 border-t-4 border-green-500 dark:text-green-400 dark:bg-gray-800" role="alert">
+                        <div class="ml-3 text-sm font-medium">
+                            <span class="font-bold">{data.success}!</span> Your connected to our sandbox.
                         </div>
-                    ) : error ? (
-                        <div class="font-inter p-2 mt-3 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">
+                    </div>
+                ) : error ? (
+                    <div id="alert-border-1" class="w-1/2 m-auto flex p-4 mb-4 text-red-700 bg-red-100 border-t-4 border-red-500 dark:text-red-400 dark:bg-gray-800" role="alert">
+                        <div class="ml-3 text-sm font-medium">
                             <span class="font-bold">{error}!</span> Something went wrong. Try again.
                         </div>
-                    ) : null}
-                </div>
+                    </div>
+                ) :
+                    <button onClick={handleSubmit} type="submit" class="w-1/2 m-auto block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send text</button>
+                }
             </div>
 
             <div id="small-modal" tabindex="-1" class="font-inter fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
