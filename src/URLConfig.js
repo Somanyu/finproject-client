@@ -1,10 +1,9 @@
-const url = "http://localhost:3001"
+// const url = "http://localhost:3001"
+const url = "https://finproject-server.onrender.com"
 
 const URLConfig = {
     signin: `${url}/auth/signin`,
     signup: `${url}/auth/signup`,
-    startMsg: `${url}/dashboard/startmsg`,
-    userDetails: `${url}/dashboard/user`,
 }
 
 export default URLConfig
