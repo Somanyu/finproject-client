@@ -23,7 +23,7 @@ const SignUp = () => {
         try {
             event.preventDefault()
             async function fetchData() {
-                const res = await fetch(URLConfig.signup, {
+                const res = await fetch("https://finproject-server.onrender.com/auth/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',

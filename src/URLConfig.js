@@ -2,8 +2,8 @@
 const url = "https://finproject-server.onrender.com"
 
 const URLConfig = {
-    signin: `${url}/auth/signin`,
-    signup: `${url}/auth/signup`,
+    signin: `https://finproject-server.onrender.com/auth/signin`,
+    signup: `https://finproject-server.onrender.com/auth/signup`,
 }
 
 export default URLConfig
