@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 import Cookies from 'js-cookie';
-import URLConfig from "../URLConfig";
+
 
 const Signin = ({ props }) => {
 
@@ -20,7 +20,7 @@ const Signin = ({ props }) => {
         event.preventDefault();
         try {
             async function fetchData() {
-                const res = await fetch("/auth/signin", {
+                const res = await fetch("https://finproject-server-production.up.railway.app/auth/signin", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
