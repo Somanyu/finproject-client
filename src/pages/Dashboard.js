@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('/dashboard/user')
+        fetch('https://finproject-server.onrender.com/dashboard/user')
             .then(res => res.json())
             .then(data => {
                 setUsers(data);
@@ -36,7 +36,7 @@ const Dashboard = () => {
         event.preventDefault();
         try {
             async function fetchData() {
-                const res = await fetch("/dashboard/startmsg", {
+                const res = await fetch("https://finproject-server.onrender.com/dashboard/startmsg", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
