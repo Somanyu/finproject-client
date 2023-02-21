@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 import 'flowbite';
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import Logout from "../components/Logout";
-import { BsTelephone } from "react-icons/bs";
 const Cookies = require('js-cookie');
 
 const Dashboard = () => {

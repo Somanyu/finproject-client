@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
+import URLConfig from "../URLConfig";
 
 const SignUp = () => {
 
@@ -22,7 +23,7 @@ const SignUp = () => {
         try {
             event.preventDefault()
             async function fetchData() {
-                const res = await fetch("/auth/signup", {
+                const res = await fetch(URLConfig.signup, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
