@@ -20,7 +20,7 @@ const Signin = ({ props }) => {
         event.preventDefault();
         try {
             async function fetchData() {
-                const res = await fetch("https://finproject-server.onrender.com/auth/signin", {
+                const res = await fetch("/auth/signin", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -36,6 +36,7 @@ const Signin = ({ props }) => {
                     Cookies.set('jwt', json.token, {expires: 7, path: ''});
                     localStorage.setItem("token", json.token)
                     window.location.href = '/dashboard'
+                    // console.log("🍪 Cookie:", json.token);
                 } else {
                     setError(json.message)
                     // window.location.href = '/signup'
