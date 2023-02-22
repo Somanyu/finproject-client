@@ -23,7 +23,7 @@ const SignUp = () => {
         try {
             event.preventDefault()
             async function fetchData() {
-                const res = await fetch("https://finproject-server-production.up.railway.app/auth/signup", {
+                const res = await fetch("/auth/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',

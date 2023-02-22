@@ -20,7 +20,7 @@ const Signin = ({ props }) => {
         event.preventDefault();
         try {
             async function fetchData() {
-                const res = await fetch("https://finproject-server-production.up.railway.app/auth/signin", {
+                const res = await fetch("/auth/signin", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
