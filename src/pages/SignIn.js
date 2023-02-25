@@ -24,6 +24,7 @@ const Signin = ({ props }) => {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
+                        'Allow': 'POST, GET, PUT, DELETE',
                     },
                     body: JSON.stringify(formData)
                 })
