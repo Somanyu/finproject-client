@@ -5,5 +5,11 @@
   "globalHeaders": {
     "Access-Control-Allow-Origin": "https://finproject-server.azurewebsites.net",
     "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
-  }
+  },
+  "routes": [
+    {
+      "route": "/dashboard/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ]
 }
