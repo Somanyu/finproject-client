@@ -13,9 +13,9 @@ function App() {
     <div className="">
       <BrowserRouter>
         <Routes>
-          {user && <Route path="/dashboard" exact element={<Dashboard />} />}
-          <Route path='/' exact element={<SignUp />} />
-          <Route path='/signin' exact element={<Signin />} />
+          {user && <Route path="/dashboard" element={<Dashboard />} />}
+          <Route path='/' element={<SignUp />} />
+          <Route path='/signin' element={<Signin />} />
           <Route path='/dashboard' element={<Navigate replace to="/signin" />} />
         </Routes>
       </BrowserRouter>
